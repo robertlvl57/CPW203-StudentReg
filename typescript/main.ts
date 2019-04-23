@@ -32,12 +32,19 @@ function getStudent():Student{
     let s = new Student();
     let fName = (<HTMLInputElement> document.getElementById("first-name")).value;
     s.firstName = fName;
-    s.lastName = (<HTMLInputElement> document.getElementById("first-name")).value;
+    s.lastName = (<HTMLInputElement> document.getElementById("last-name")).value;
     //TODO: get date of birth
     return s;
 }
 
 function displayStudent(stu:Student){
-    alert(stu.firstName + " " + stu.lastName);
+    
+    //<li> </li>
+    let studentLI:HTMLLIElement = document.createElement("li");
+    //<li>J. Doe</li>
+    studentLI.innerText = stu.firstName + " " + stu.lastName;
 
+    //getting <ul> and appending the new <li>
+    let list = document.querySelector("#roster > ul");
+    list.appendChild(studentLI);
 }
